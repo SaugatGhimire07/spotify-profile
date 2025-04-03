@@ -56,7 +56,7 @@ function App() {
 
       if (code) {
         setLoading(true);
-        // Make sure this matches your Render.com backend URL
+        // Direct callback to Render backend with code parameter
         window.location.href = `https://spotify-profile-6xq5.onrender.com/callback?code=${code}`;
       }
     }, []);
