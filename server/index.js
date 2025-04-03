@@ -45,7 +45,7 @@ app.get("/callback", async (req, res) => {
 
     // Redirect to your frontend with the access token
     res.redirect(
-      `http://localhost:5173?access_token=${response.data.access_token}`
+      `${process.env.FRONTEND_URI}?access_token=${response.data.access_token}`
     );
   } catch (err) {
     console.error(err.response?.data || err.message);
