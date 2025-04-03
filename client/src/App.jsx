@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import Loading from "./components/Loading";
+import TopArtists from "./pages/TopArtists";
 import "./styles/font.css";
 
 function App() {
@@ -77,6 +78,10 @@ function App() {
         <Route
           path="/dashboard"
           element={token ? <Dashboard token={token} /> : <Navigate to="/" />}
+        />
+        <Route
+          path="/top-artists"
+          element={token ? <TopArtists token={token} /> : <Navigate to="/" />}
         />
       </Routes>
     </div>
