@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 // Add this helper function at the top of the file, before the UserPreview component
@@ -9,6 +10,7 @@ const formatDuration = (ms) => {
 };
 
 function UserPreview({ token }) {
+  const navigate = useNavigate();
   const [topArtists, setTopArtists] = useState([]);
   const [topTracks, setTopTracks] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -45,6 +47,11 @@ function UserPreview({ token }) {
       fetchUserData();
     }
   }, [token]);
+
+  const handleTrackClick = (e, trackId) => {
+    e.preventDefault();
+    navigate(`/track/${trackId}`);
+  };
 
   return (
     <div className="w-full">
@@ -117,8 +124,7 @@ function UserPreview({ token }) {
               <a
                 key={track.id}
                 href={track.external_urls.spotify}
-                target="_blank"
-                rel="noopener noreferrer"
+                onClick={(e) => handleTrackClick(e, track.id)}
                 className="flex items-center p-[10px] transition duration-[250ms] group"
               >
                 <div className="relative w-[50px] h-[50px] mr-[20px]">
