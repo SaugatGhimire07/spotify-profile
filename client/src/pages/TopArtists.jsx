@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; // Add this import
 import axios from "axios";
 import Loading from "../components/Loading";
 import Sidebar from "../components/Sidebar";
 import TimeRangeButtons from "../components/TimeRangeButtons";
 
 function TopArtists({ token }) {
+  const navigate = useNavigate(); // Add this hook
   const [topArtists, setTopArtists] = useState([]);
   const [timeRange, setTimeRange] = useState("long_term");
   const [firstLoad, setFirstLoad] = useState(true);
@@ -31,6 +33,12 @@ function TopArtists({ token }) {
 
     fetchData();
   }, [token, timeRange]);
+
+  // Add this function to handle artist click
+  const handleArtistClick = (e, artistId) => {
+    e.preventDefault();
+    navigate(`/artists/${artistId}`);
+  };
 
   // Render the layout immediately, only show loading for content
   return (
@@ -69,8 +77,7 @@ function TopArtists({ token }) {
                   <div key={artist.id} className="flex flex-col items-center">
                     <a
                       href={artist.external_urls.spotify}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      onClick={(e) => handleArtistClick(e, artist.id)}
                       className="group/image"
                     >
                       <div className="relative mb-[15px] rounded-full overflow-hidden w-[200px] h-[200px]">
@@ -92,8 +99,7 @@ function TopArtists({ token }) {
                     </a>
                     <a
                       href={artist.external_urls.spotify}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      onClick={(e) => handleArtistClick(e, artist.id)}
                       className="group/name"
                     >
                       <p className="inline-block font-light text-white transition-all duration-[250ms] ease-[cubic-bezier(0.3,0,0.4,1)] border-b border-transparent group-hover/name:border-white">

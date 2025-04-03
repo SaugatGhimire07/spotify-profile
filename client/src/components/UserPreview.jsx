@@ -58,7 +58,7 @@ function UserPreview({ token }) {
             </h3>
             <a
               href="/top-artists"
-              className="inline-block text-white font-bold text-[12px] tracking-[1px] uppercase border border-white px-[30px] py-[12px] cursor-pointer transition-[all] duration-[250ms] ease-[cubic-bezier(0.3,0,0.4,1)] text-center whitespace-nowrap hover:bg-white hover:text-black rounded-[30px]"
+              className="inline-block text-white text-[12px] tracking-[1px] uppercase border border-white px-[30px] py-[12px] cursor-pointer transition-[all] duration-[250ms] ease-[cubic-bezier(0.3,0,0.4,1)] text-center whitespace-nowrap hover:bg-white hover:text-black rounded-[30px]"
             >
               See More
             </a>
@@ -107,7 +107,7 @@ function UserPreview({ token }) {
             <h3 className="font-bold tracking-tight">Top Tracks of All Time</h3>
             <a
               href="/top-tracks"
-              className="inline-block text-white font-bold text-[12px] tracking-[1px] uppercase border border-white px-[30px] py-[12px] cursor-pointer transition-[all] duration-[250ms] ease-[cubic-bezier(0.3,0,0.4,1)] text-center whitespace-nowrap hover:bg-white hover:text-black rounded-[30px]"
+              className="inline-block text-white text-[12px] tracking-[1px] uppercase border border-white px-[30px] py-[12px] cursor-pointer transition-[all] duration-[250ms] ease-[cubic-bezier(0.3,0,0.4,1)] text-center whitespace-nowrap hover:bg-white hover:text-black rounded-[30px]"
             >
               See More
             </a>

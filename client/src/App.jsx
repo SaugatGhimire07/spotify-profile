@@ -7,6 +7,7 @@ import TopTracks from "./pages/TopTracks";
 import Recent from "./pages/Recent";
 import Playlists from "./pages/Playlists";
 import PlaylistDetail from "./pages/PlaylistDetail";
+import ArtistDetail from "./pages/ArtistDetail";
 import "./styles/font.css";
 
 function App() {
@@ -118,6 +119,10 @@ function App() {
           element={
             token ? <PlaylistDetail token={token} /> : <Navigate to="/" />
           }
+        />
+        <Route
+          path="/artists/:artistId"
+          element={token ? <ArtistDetail token={token} /> : <Navigate to="/" />}
         />
       </Routes>
     </div>

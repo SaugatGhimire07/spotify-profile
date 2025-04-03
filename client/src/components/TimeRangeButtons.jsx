@@ -10,18 +10,24 @@ function TimeRangeButtons({ timeRange, setTimeRange, isChangingTimeRange }) {
   return (
     <div className="flex gap-[10px]">
       {timeRangeButtons.map(({ name, value }) => (
-        <button
+        <a
           key={value}
-          className={`px-[24px] py-[11px] text-[12px] font-bold tracking-[1px] uppercase rounded-[30px] cursor-pointer transition-all duration-[250ms] ease-[cubic-bezier(0.3,0,0.4,1)] ${
+          href="#"
+          className={`text-[12px] uppercase tracking-[1px] border border-white px-[30px] py-[12px] rounded-[30px] transition-all duration-[250ms] ease-[cubic-bezier(0.3,0,0.4,1)] ${
             timeRange === value
-              ? "bg-white text-black"
-              : "text-white border border-white hover:bg-white hover:text-black"
-          }`}
-          onClick={() => setTimeRange(value)}
-          disabled={isChangingTimeRange}
+              ? "bg-white text-black border-white"
+              : "text-white border-white hover:bg-white hover:text-black"
+          } ${isChangingTimeRange ? "opacity-50 pointer-events-none" : ""}`}
+          onClick={(e) => {
+            e.preventDefault();
+            if (!isChangingTimeRange) {
+              setTimeRange(value);
+            }
+          }}
+          aria-disabled={isChangingTimeRange}
         >
           <span>{name}</span>
-        </button>
+        </a>
       ))}
     </div>
   );

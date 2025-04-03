@@ -56,12 +56,16 @@ function ProfileHeader({ profile, following, playlists, handleLogout }) {
             </div>
           </div>
 
-          <button
-            onClick={handleLogout}
-            className="inline-block text-white font-bold text-[12px] tracking-[1px] uppercase border border-white px-[30px] py-[12px] cursor-pointer transition-[all] duration-[250ms] ease-[cubic-bezier(0.3,0,0.4,1)] text-center whitespace-nowrap hover:bg-white hover:text-black rounded-[30px] mt-[30px]"
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              handleLogout();
+            }}
+            className="inline-block text-white text-[12px] uppercase tracking-[1px] border border-white px-[30px] py-[12px] rounded-[30px] hover:bg-white hover:text-black transition-all duration-[250ms] ease-[cubic-bezier(0.3,0,0.4,1)] mt-[30px]"
           >
             Logout
-          </button>
+          </a>
         </div>
       </div>
     </div>

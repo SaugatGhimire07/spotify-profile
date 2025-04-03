@@ -84,7 +84,7 @@ function PlaylistDetail({ token }) {
                   </p>
                   <Link
                     to="/playlists"
-                    className="text-white text-[12px] uppercase tracking-[1px] border border-white px-[30px] py-[12px] rounded-[30px] hover:bg-white hover:text-black transition-all duration-200"
+                    className="text-white text-[12px] uppercase tracking-[1px] border border-white px-[30px] py-[12px] rounded-[30px] hover:bg-white hover:text-black transition-all duration-[250ms] ease-[cubic-bezier(0.3,0,0.4,1)]"
                   >
                     Back to Playlists
                   </Link>
