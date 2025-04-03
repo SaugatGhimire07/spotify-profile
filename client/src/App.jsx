@@ -56,8 +56,8 @@ function App() {
 
       if (code) {
         setLoading(true);
-        // Redirect to server endpoint with the code
-        window.location.href = `http://localhost:8888/callback?code=${code}`;
+        // Update this line to use your Render.com backend URL
+        window.location.href = `https://spotify-profile-6xq5.onrender.com/callback?code=${code}`;
       }
     }, []);
 
