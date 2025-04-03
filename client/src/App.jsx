@@ -56,7 +56,7 @@ function App() {
 
       if (code) {
         setLoading(true);
-        // Update this line to use your Render.com backend URL
+        // Make sure this matches your Render.com backend URL
         window.location.href = `https://spotify-profile-6xq5.onrender.com/callback?code=${code}`;
       }
     }, []);
@@ -83,7 +83,7 @@ function App() {
                 </h1>
                 <button
                   onClick={() =>
-                    // Change this line to use your deployed backend URL
+                    // Make sure this matches your Render.com backend URL
                     (window.location.href =
                       "https://spotify-profile-6xq5.onrender.com/login")
                   }
