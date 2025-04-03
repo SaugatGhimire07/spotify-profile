@@ -9,7 +9,7 @@ function Loading() {
         {bars.map((delay, i) => (
           <div
             key={i}
-            className="w-[10px] h-[5px] mx-[2px] bg-[#282828] animate-dance"
+            className="w-[10px] h-[5px] mx-[2px] bg-[#4a4a4a] animate-dance"
             style={{
               animationDelay: `${delay}ms`,
               animation: `dance 1s ease-in-out infinite ${delay}ms`,

@@ -70,7 +70,7 @@ function UserPreview({ token }) {
                 href={artist.external_urls.spotify}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center p-[10px] transition duration-300 group"
+                className="flex items-center p-[10px] transition duration-[250ms] group"
               >
                 <div className="relative w-[50px] h-[50px] mr-[20px] rounded-full overflow-hidden">
                   <img
@@ -78,7 +78,7 @@ function UserPreview({ token }) {
                     alt={artist.name}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-[250ms] ease-[cubic-bezier(0.3,0,0.4,1)]">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 45.999 45.999"
@@ -89,7 +89,7 @@ function UserPreview({ token }) {
                   </div>
                 </div>
                 <div className="flex-1">
-                  <p className="inline-block font-light text-white group-hover:text-white transition duration-300 border-b border-transparent hover:border-white">
+                  <p className="inline-block font-light text-white group-hover:text-white transition-all duration-[250ms] ease-[cubic-bezier(0.3,0,0.4,1)] border-b border-transparent hover:border-white">
                     {artist.name}
                   </p>
                   <p className="text-[14px] text-[#9b9b9b]">
@@ -119,7 +119,7 @@ function UserPreview({ token }) {
                 href={track.external_urls.spotify}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center p-[10px] transition duration-300 group"
+                className="flex items-center p-[10px] transition duration-[250ms] group"
               >
                 <div className="relative w-[50px] h-[50px] mr-[20px]">
                   <img
@@ -127,7 +127,7 @@ function UserPreview({ token }) {
                     alt={track.album.name}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-[250ms] ease-[cubic-bezier(0.3,0,0.4,1)]">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 45.999 45.999"
@@ -138,7 +138,7 @@ function UserPreview({ token }) {
                   </div>
                 </div>
                 <div className="flex-1">
-                  <p className="inline-block font-light text-white group-hover:text-white transition duration-300 border-b border-transparent hover:border-white">
+                  <p className="inline-block font-light text-white group-hover:text-white transition-all duration-[250ms] ease-[cubic-bezier(0.3,0,0.4,1)] border-b border-transparent hover:border-white">
                     {track.name}
                   </p>
                   <p className="text-[14px] text-[#9b9b9b]">

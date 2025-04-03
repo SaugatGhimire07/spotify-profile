@@ -3,6 +3,9 @@ import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import Loading from "./components/Loading";
 import TopArtists from "./pages/TopArtists";
+import TopTracks from "./pages/TopTracks";
+import Recent from "./pages/Recent";
+import Playlists from "./pages/Playlists";
 import "./styles/font.css";
 
 function App() {
@@ -82,6 +85,18 @@ function App() {
         <Route
           path="/top-artists"
           element={token ? <TopArtists token={token} /> : <Navigate to="/" />}
+        />
+        <Route
+          path="/top-tracks"
+          element={token ? <TopTracks token={token} /> : <Navigate to="/" />}
+        />
+        <Route
+          path="/recent"
+          element={token ? <Recent token={token} /> : <Navigate to="/" />}
+        />
+        <Route
+          path="/playlists"
+          element={token ? <Playlists token={token} /> : <Navigate to="/" />}
         />
       </Routes>
     </div>
