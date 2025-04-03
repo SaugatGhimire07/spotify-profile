@@ -83,7 +83,9 @@ function App() {
                 </h1>
                 <button
                   onClick={() =>
-                    (window.location.href = "http://localhost:8888/login")
+                    // Change this line to use your deployed backend URL
+                    (window.location.href =
+                      "https://spotify-profile-6xq5.onrender.com/login")
                   }
                   className="bg-[#18b954] uppercase px-[35px] py-[17px] hover:bg-opacity-80 text-white rounded-full transition duration-300 mt-[20px] mb-[70px] tracking-[2px] font-medium cursor-pointer"
                 >
