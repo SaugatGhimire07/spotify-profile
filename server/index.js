@@ -43,9 +43,9 @@ app.get("/callback", async (req, res) => {
       },
     });
 
-    // Redirect to frontend with access token
+    // Changed FRONTEND_URI to FRONTEND_URL to match Render env var
     res.redirect(
-      `${process.env.FRONTEND_URI}?access_token=${response.data.access_token}`
+      `${process.env.FRONTEND_URL}?access_token=${response.data.access_token}`
     );
   } catch (err) {
     console.error(err.response?.data || err.message);
