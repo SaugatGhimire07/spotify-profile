@@ -43,7 +43,7 @@ app.get("/callback", async (req, res) => {
       },
     });
 
-    // Redirect to your frontend with the access token
+    // Redirect to frontend with access token
     res.redirect(
       `${process.env.FRONTEND_URI}?access_token=${response.data.access_token}`
     );

@@ -83,7 +83,6 @@ function App() {
                 </h1>
                 <button
                   onClick={() =>
-                    // Make sure this matches your Render.com backend URL
                     (window.location.href =
                       "https://spotify-profile-6xq5.onrender.com/login")
                   }
