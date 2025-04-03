@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
+import Loading from "./components/Loading";
 import "./styles/font.css";
-import axios from "axios";
 
 function App() {
   const [token, setToken] = useState(null);
@@ -41,15 +41,15 @@ function App() {
       }
     }, []);
 
-    return <p className="text-white text-center mt-12">Processing login...</p>;
+    return <Loading />;
   };
 
   if (loading) {
-    return <p className="text-white text-center mt-12">Loading...</p>;
+    return <Loading />;
   }
 
   return (
-    <div className="min-h-screen bg-spotify-bg text-primary font-circular">
+    <div className="min-h-screen bg-[#181818] text-primary font-circular">
       <Routes>
         <Route
           path="/"
