@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import Loading from "../components/Loading";
 import Sidebar from "../components/Sidebar";
 import TimeRangeButtons from "../components/TimeRangeButtons";
@@ -16,7 +15,6 @@ function TopTracks({ token }) {
   const [timeRange, setTimeRange] = useState("long_term");
   const [firstLoad, setFirstLoad] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,11 +37,6 @@ function TopTracks({ token }) {
 
     fetchData();
   }, [token, timeRange]);
-
-  const handleTrackClick = (e, trackId) => {
-    e.preventDefault();
-    navigate(`/track/${trackId}`);
-  };
 
   return (
     <div className="flex">
@@ -81,7 +74,8 @@ function TopTracks({ token }) {
                   <a
                     key={track.id}
                     href={track.external_urls.spotify}
-                    onClick={(e) => handleTrackClick(e, track.id)}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center mb-[30px] transition duration-[250ms] ease-in-out group"
                   >
                     <div className="relative w-[50px] h-[50px] mr-[20px]">

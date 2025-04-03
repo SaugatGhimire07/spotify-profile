@@ -7,7 +7,6 @@ import TopTracks from "./pages/TopTracks";
 import Recent from "./pages/Recent";
 import Playlists from "./pages/Playlists";
 import PlaylistDetail from "./pages/PlaylistDetail";
-import TrackDetails from "./pages/TrackDetails";
 import "./styles/font.css";
 
 function App() {
@@ -15,7 +14,15 @@ function App() {
   const [loading, setLoading] = useState(false);
   const location = useLocation();
 
+  // Add this state to remember the initial path
+  const [initialPath, setInitialPath] = useState(null);
+
   useEffect(() => {
+    // Save the current path when the app loads
+    if (!initialPath && location.pathname !== "/") {
+      setInitialPath(location.pathname);
+    }
+
     // Check for access token in URL parameters
     const accessToken = new URLSearchParams(location.search).get(
       "access_token"
@@ -24,8 +31,14 @@ function App() {
       setToken(accessToken);
       // Store token in localStorage for persistence
       localStorage.setItem("spotify_access_token", accessToken);
-      // Clear the URL
-      window.history.replaceState({}, document.title, "/");
+      // Clear only the query parameters but keep the current path
+      const url = new URL(window.location.href);
+      url.searchParams.delete("access_token");
+      window.history.replaceState(
+        {},
+        document.title,
+        url.pathname + url.search
+      );
     } else {
       // Check if token exists in localStorage
       const storedToken = localStorage.getItem("spotify_access_token");
@@ -33,7 +46,7 @@ function App() {
         setToken(storedToken);
       }
     }
-  }, [location]);
+  }, [location, initialPath]);
 
   // Callback handler - now handles the code parameter
   const CallbackComponent = () => {
@@ -61,7 +74,7 @@ function App() {
           path="/"
           element={
             token ? (
-              <Navigate to="/dashboard" />
+              <Navigate to={initialPath || "/dashboard"} replace />
             ) : (
               <div className="flex flex-col items-center justify-center h-screen">
                 <h1 className="text-[32px] font-bold mb-[10px] tracking-[-0.025em]">
@@ -105,10 +118,6 @@ function App() {
           element={
             token ? <PlaylistDetail token={token} /> : <Navigate to="/" />
           }
-        />
-        <Route
-          path="/track/:trackId"
-          element={token ? <TrackDetails token={token} /> : <Navigate to="/" />}
         />
       </Routes>
     </div>

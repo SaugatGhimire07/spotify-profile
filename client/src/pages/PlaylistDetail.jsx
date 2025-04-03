@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, Link } from "react-router-dom"; // Add Link import
 import axios from "axios";
 import Loading from "../components/Loading";
 import Sidebar from "../components/Sidebar";
@@ -12,16 +12,10 @@ const formatDuration = (ms) => {
 
 function PlaylistDetail({ token }) {
   const { playlistId } = useParams();
-  const navigate = useNavigate();
   const [playlist, setPlaylist] = useState(null);
   const [profile, setProfile] = useState(null);
   const [firstLoad, setFirstLoad] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
-
-  const handleTrackClick = (e, trackId) => {
-    e.preventDefault();
-    navigate(`/track/${trackId}`);
-  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -73,7 +67,7 @@ function PlaylistDetail({ token }) {
                 } transition-opacity duration-300`}
               >
                 {/* Left Section - Playlist Info */}
-                <div className="w-[300px] flex flex-col items-center">
+                <div className="w-[300px] flex-shrink-0 sticky top-[80px] self-start flex flex-col items-center h-fit">
                   <img
                     src={
                       playlist?.images[0]?.url ||
@@ -88,12 +82,12 @@ function PlaylistDetail({ token }) {
                   <p className="text-[14px] text-[#9b9b9b] mb-[20px]">
                     by {profile?.display_name}
                   </p>
-                  <button
-                    onClick={() => navigate("/playlists")}
+                  <Link
+                    to="/playlists"
                     className="text-white text-[12px] uppercase tracking-[1px] border border-white px-[30px] py-[12px] rounded-[30px] hover:bg-white hover:text-black transition-all duration-200"
                   >
                     Back to Playlists
-                  </button>
+                  </Link>
                 </div>
 
                 {/* Right Section - Tracks List */}
@@ -103,7 +97,8 @@ function PlaylistDetail({ token }) {
                       <a
                         key={`${item.track.id}-${index}`}
                         href={item.track.external_urls.spotify}
-                        onClick={(e) => handleTrackClick(e, item.track.id)}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="flex items-center p-[10px] group transition-colors duration-200 hover:bg-[#282828] rounded"
                       >
                         <div className="relative w-[50px] h-[50px] mr-[20px]">

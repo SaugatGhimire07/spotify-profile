@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Loading from "../components/Loading";
 import Sidebar from "../components/Sidebar";
@@ -11,7 +10,6 @@ const formatDuration = (ms) => {
 };
 
 function Recent({ token }) {
-  const navigate = useNavigate();
   const [recentTracks, setRecentTracks] = useState([]);
   const [firstLoad, setFirstLoad] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
@@ -37,11 +35,6 @@ function Recent({ token }) {
 
     fetchData();
   }, [token]);
-
-  const handleTrackClick = (e, trackId) => {
-    e.preventDefault();
-    navigate(`/track/${trackId}`);
-  };
 
   return (
     <div className="flex">
@@ -76,7 +69,6 @@ function Recent({ token }) {
                   <a
                     key={`${item.track.id}-${item.played_at}`}
                     href={item.track.external_urls.spotify}
-                    onClick={(e) => handleTrackClick(e, item.track.id)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center mb-[30px] transition duration-[250ms] ease-in-out group"
