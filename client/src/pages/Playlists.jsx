@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Loading from "../components/Loading";
 import Sidebar from "../components/Sidebar";
 
 function Playlists({ token }) {
+  const navigate = useNavigate();
   const [playlists, setPlaylists] = useState([]);
   const [firstLoad, setFirstLoad] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
@@ -29,6 +31,11 @@ function Playlists({ token }) {
 
     fetchData();
   }, [token]);
+
+  const handlePlaylistClick = (e, playlistId) => {
+    e.preventDefault();
+    navigate(`/playlists/${playlistId}`);
+  };
 
   return (
     <div className="flex">
@@ -58,33 +65,37 @@ function Playlists({ token }) {
                 } transition-opacity duration-[250ms] ease-in-out`}
               >
                 {playlists.map((playlist) => (
-                  <a
-                    key={playlist.id}
-                    href={playlist.external_urls.spotify}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group"
-                  >
-                    <div className="relative mb-[15px] aspect-square">
-                      <img
-                        src={
-                          playlist.images[0]?.url ||
-                          "https://placehold.co/400?text=No+Image"
-                        }
-                        alt={playlist.name}
-                        className="w-full h-full object-cover group-hover:opacity-60 transition-opacity duration-[250ms] ease-in-out"
-                      />
-                      <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-[250ms] ease-[cubic-bezier(0.3,0,0.4,1)]"></div>
-                    </div>
-                    <div className="text-center">
-                      <p className="text-white font-normal mb-[5px] hover:text-[#1db954] transition-colors">
+                  <div key={playlist.id} className="flex flex-col items-center">
+                    <a
+                      href={playlist.external_urls.spotify}
+                      onClick={(e) => handlePlaylistClick(e, playlist.id)}
+                      className="group/image"
+                    >
+                      <div className="relative mb-[20px] aspect-square">
+                        <img
+                          src={
+                            playlist.images[0]?.url ||
+                            "https://placehold.co/400?text=No+Image"
+                          }
+                          alt={playlist.name}
+                          className="w-full h-full object-cover group-hover/image:opacity-60 transition-opacity duration-[250ms] ease-in-out"
+                        />
+                        <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover/image:opacity-100 transition-opacity duration-[250ms] ease-[cubic-bezier(0.3,0,0.4,1)]"></div>
+                      </div>
+                    </a>
+                    <a
+                      href={playlist.external_urls.spotify}
+                      onClick={(e) => handlePlaylistClick(e, playlist.id)}
+                      className="group/name"
+                    >
+                      <p className="inline-block font-light text-white transition-all duration-[250ms] ease-[cubic-bezier(0.3,0,0.4,1)] border-b border-transparent group-hover/name:border-white text-center">
                         {playlist.name}
                       </p>
-                      <p className="text-[12px] text-[#9b9b9b] uppercase tracking-[1px]">
+                      <p className="text-[12px] text-[#9b9b9b] uppercase tracking-[1px] mt-[1px] text-center">
                         {playlist.tracks.total} Tracks
                       </p>
-                    </div>
-                  </a>
+                    </a>
+                  </div>
                 ))}
               </div>
             </div>

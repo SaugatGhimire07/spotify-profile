@@ -24,7 +24,8 @@ function Recent({ token }) {
             headers: { Authorization: `Bearer ${token}` },
           }
         );
-        setRecentTracks(data.items.map((item) => item.track));
+        // Keep the played_at timestamp with each track
+        setRecentTracks(data.items);
       } catch (error) {
         console.error(error);
       } finally {
@@ -65,18 +66,18 @@ function Recent({ token }) {
                   isLoading ? "opacity-50" : ""
                 } transition-opacity duration-[250ms] ease-in-out`}
               >
-                {recentTracks.map((track) => (
+                {recentTracks.map((item) => (
                   <a
-                    key={track.id}
-                    href={track.external_urls.spotify}
+                    key={`${item.track.id}-${item.played_at}`}
+                    href={item.track.external_urls.spotify}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center mb-[30px] transition duration-[250ms] ease-in-out group"
                   >
                     <div className="relative w-[50px] h-[50px] mr-[20px]">
                       <img
-                        src={track.album.images[0]?.url}
-                        alt={track.album.name}
+                        src={item.track.album.images[0]?.url}
+                        alt={item.track.album.name}
                         className="w-full h-full object-cover"
                       />
                       <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-[250ms] ease-in-out">
@@ -91,16 +92,18 @@ function Recent({ token }) {
                     </div>
                     <div className="flex-1">
                       <p className="inline-block font-light text-white group-hover:text-white transition-all duration-[250ms] ease-[cubic-bezier(0.3,0,0.4,1)] border-b border-transparent hover:border-white">
-                        {track.name}
+                        {item.track.name}
                       </p>
                       <p className="text-[14px] text-[#9b9b9b]">
-                        {track.artists.map((artist) => artist.name).join(", ")}
-                        &nbsp;&nbsp;·&nbsp;&nbsp;{track.album.name}
+                        {item.track.artists
+                          .map((artist) => artist.name)
+                          .join(", ")}
+                        &nbsp;&nbsp;·&nbsp;&nbsp;{item.track.album.name}
                       </p>
                     </div>
                     <div>
                       <p className="text-[#9b9b9b] text-sm">
-                        {formatDuration(track.duration_ms)}
+                        {formatDuration(item.track.duration_ms)}
                       </p>
                     </div>
                   </a>

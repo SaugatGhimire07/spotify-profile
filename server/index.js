@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 8888;
 // Spotify Auth Route
 app.get("/login", (req, res) => {
   const scopes =
-    "user-read-private user-read-email user-follow-read playlist-read-private user-top-read user-read-recently-played";
+    "user-read-private user-read-email user-follow-read playlist-read-private user-top-read user-read-recently-played playlist-read-private";
   const redirect_uri = process.env.REDIRECT_URI;
   const authURL = `https://accounts.spotify.com/authorize?client_id=${
     process.env.CLIENT_ID
