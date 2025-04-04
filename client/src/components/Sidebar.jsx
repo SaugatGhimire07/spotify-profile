@@ -60,9 +60,9 @@ function Sidebar() {
 
   return (
     <>
-      {/* Desktop Sidebar */}
+      {/* Desktop Sidebar (large screens only) */}
       <div
-        className="hidden md:flex fixed top-0 left-0 h-screen w-[100px] bg-[#040406] flex-col justify-between"
+        className="hidden lg:flex fixed top-0 left-0 h-screen w-[100px] bg-[#040406] flex-col justify-between"
         style={{ boxShadow: "rgba(0, 0, 0, 0.3) 0px 0px 10px" }}
       >
         {/* Spotify Logo */}
@@ -75,7 +75,7 @@ function Sidebar() {
           </svg>
         </div>
 
-        {/* Navigation Links */}
+        {/* Navigation Links for Desktop */}
         <div className="flex-1 flex items-center justify-center">
           <ul className="flex flex-col items-center w-full">
             {navItems.map((item) => (
@@ -99,8 +99,8 @@ function Sidebar() {
         </div>
       </div>
 
-      {/* Mobile Bottom Navigation */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 bg-[#040406] shadow-up z-50">
+      {/* Bottom Navigation for Mobile and Tablet */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-[#040406] shadow-up z-50">
         <ul className="flex justify-around items-center h-[60px]">
           {navItems.map((item) => (
             <li key={item.name}>
