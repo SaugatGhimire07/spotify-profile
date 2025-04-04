@@ -45,8 +45,9 @@ function TopArtists({ token }) {
     <div className="flex">
       <Sidebar />
       <div className="flex-1 ml-[100px]">
-        <div className="flex-1 bg-[#181818] p-[80px] max-w-[1400px] mx-auto">
-          <div className="flex items-center justify-between mb-[40px]">
+        <div className="flex-1 bg-[#181818] p-[20px] md:p-[80px] max-w-[1400px] mx-auto">
+          {/* Change to flex-col for mobile */}
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-0 mb-[40px]">
             <h2 className="text-white text-[24px] font-bold">Top Artists</h2>
             <TimeRangeButtons
               timeRange={timeRange}
@@ -68,8 +69,9 @@ function TopArtists({ token }) {
                   </div>
                 </div>
               )}
+              {/* Update grid columns for different breakpoints */}
               <div
-                className={`grid grid-cols-5 gap-[20px] mt-[50px] ${
+                className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-[20px] mt-[30px] md:mt-[50px] ${
                   isLoading ? "opacity-50" : ""
                 } transition-opacity duration-[250ms] ease-in-out`}
               >
@@ -78,9 +80,9 @@ function TopArtists({ token }) {
                     <a
                       href={artist.external_urls.spotify}
                       onClick={(e) => handleArtistClick(e, artist.id)}
-                      className="group/image"
+                      className="group/image w-full"
                     >
-                      <div className="relative mb-[15px] rounded-full overflow-hidden w-[200px] h-[200px]">
+                      <div className="relative mb-[15px] rounded-full overflow-hidden aspect-square w-full max-w-[200px] mx-auto">
                         <img
                           src={artist.images[0]?.url}
                           alt={artist.name}
@@ -100,9 +102,9 @@ function TopArtists({ token }) {
                     <a
                       href={artist.external_urls.spotify}
                       onClick={(e) => handleArtistClick(e, artist.id)}
-                      className="group/name"
+                      className="group/name text-center"
                     >
-                      <p className="inline-block font-light text-white transition-all duration-[250ms] ease-[cubic-bezier(0.3,0,0.4,1)] border-b border-transparent group-hover/name:border-white">
+                      <p className="inline-block font-light text-white text-sm md:text-base transition-all duration-[250ms] ease-[cubic-bezier(0.3,0,0.4,1)] border-b border-transparent group-hover/name:border-white">
                         {artist.name}
                       </p>
                     </a>

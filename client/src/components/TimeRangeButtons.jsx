@@ -8,12 +8,12 @@ function TimeRangeButtons({ timeRange, setTimeRange, isChangingTimeRange }) {
   ];
 
   return (
-    <div className="flex gap-[10px]">
+    <div className="flex flex-wrap gap-[10px] w-full md:w-auto justify-start">
       {timeRangeButtons.map(({ name, value }) => (
         <a
           key={value}
           href="#"
-          className={`text-[12px] uppercase tracking-[1px] border border-white px-[30px] py-[12px] rounded-[30px] transition-all duration-[250ms] ease-[cubic-bezier(0.3,0,0.4,1)] ${
+          className={`text-[10px] md:text-[12px] uppercase tracking-[1px] border border-white px-[20px] md:px-[30px] py-[8px] md:py-[12px] rounded-[30px] transition-all duration-[250ms] ease-[cubic-bezier(0.3,0,0.4,1)] ${
             timeRange === value
               ? "bg-white text-black border-white"
               : "text-white border-white hover:bg-white hover:text-black"
