@@ -21,7 +21,7 @@ function ProfileHeader({ profile, following, playlists, handleLogout }) {
             rel="noopener noreferrer"
             className="inline-block"
           >
-            <h1 className="text-[50px] font-semibold duration-300">
+            <h1 className="text-[34px] md:text-[50px] font-semibold duration-300">
               {profile.display_name}
             </h1>
           </a>
