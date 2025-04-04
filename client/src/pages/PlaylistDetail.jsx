@@ -62,37 +62,37 @@ function PlaylistDetail({ token }) {
                 </div>
               )}
               <div
-                className={`flex flex-col md:flex-row ${
+                className={`flex flex-col lg:flex-row ${
                   isLoading ? "opacity-50" : ""
                 } transition-opacity duration-300`}
               >
                 {/* Left Section - Playlist Info */}
-                <div className="w-full md:w-[300px] md:flex-shrink-0 md:sticky md:top-[80px] md:self-start flex flex-col items-center h-fit mb-[30px] md:mb-0">
+                <div className="w-full lg:w-[300px] lg:flex-shrink-0 lg:sticky lg:top-[80px] lg:self-start flex flex-col items-center h-fit mb-[30px] lg:mb-0">
                   <img
                     src={
                       playlist?.images[0]?.url ||
                       "https://placehold.co/400?text=No+Image"
                     }
                     alt={playlist?.name}
-                    className="w-full max-w-[300px] aspect-square object-cover shadow-xl mb-[15px] md:mb-[20px]"
+                    className="w-full max-w-[300px] aspect-square object-cover shadow-xl mb-[15px] lg:mb-[20px]"
                   />
-                  <h2 className="text-[24px] md:text-[28px] font-bold text-white mb-[10px] text-center px-[20px]">
+                  <h2 className="text-[24px] lg:text-[28px] font-bold text-white mb-[10px] text-center px-[20px]">
                     {playlist?.name}
                   </h2>
-                  <p className="text-[12px] md:text-[14px] text-[#9b9b9b] mb-[20px]">
+                  <p className="text-[12px] lg:text-[14px] text-[#9b9b9b] mb-[20px]">
                     by {profile?.display_name}
                   </p>
                   <Link
                     to="/playlists"
-                    className="text-white text-[10px] md:text-[12px] uppercase tracking-[1px] border border-white px-[20px] md:px-[30px] py-[8px] md:py-[12px] rounded-[30px] hover:bg-white hover:text-black transition-all duration-[250ms] ease-[cubic-bezier(0.3,0,0.4,1)]"
+                    className="text-white text-[10px] lg:text-[12px] uppercase tracking-[1px] border border-white px-[20px] lg:px-[30px] py-[8px] lg:py-[12px] rounded-[30px] hover:bg-white hover:text-black transition-all duration-[250ms] ease-[cubic-bezier(0.3,0,0.4,1)]"
                   >
                     Back to Playlists
                   </Link>
                 </div>
 
                 {/* Right Section - Tracks List */}
-                <div className="flex-1 md:ml-[40px]">
-                  <div className="space-y-[10px] md:space-y-[15px]">
+                <div className="flex-1 lg:ml-[40px]">
+                  <div className="space-y-[10px] lg:space-y-[15px]">
                     {playlist.tracks.items.map((item, index) => (
                       <a
                         key={`${item.track.id}-${index}`}
