@@ -99,9 +99,9 @@ function TopTracks({ token }) {
                       <p className="inline-block font-light text-white group-hover:text-white transition-all duration-[250ms] ease-[cubic-bezier(0.3,0,0.4,1)] border-b border-transparent hover:border-white">
                         {track.name}
                       </p>
-                      <p className="text-[14px] text-[#9b9b9b] overflow-hidden text-ellipsis whitespace-nowrap sm:whitespace-normal sm:overflow-visible sm:text-clip">
-                        {track.artists.map((artist) => artist.name).join(", ")}{" "}
-                        · {track.album.name}
+                      <p className="text-[14px] text-[#9b9b9b]">
+                        {track.artists.map((artist) => artist.name).join(", ")}
+                        &nbsp;&nbsp;·&nbsp;&nbsp;{track.album.name}
                       </p>
                     </div>
                     <div>
