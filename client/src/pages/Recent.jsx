@@ -41,9 +41,9 @@ function Recent({ token }) {
       <Sidebar />
       <div className="flex-1 ml-0 lg:ml-[100px]">
         <div className="flex-1 bg-[#181818] p-[20px] md:p-[80px] max-w-[1400px] mx-auto">
-          {/* Center align the title */}
-          <div className="flex flex-col items-center mb-[30px] md:mb-[40px]">
-            <h2 className="text-white text-[20px] md:text-[24px] font-bold text-center">
+          {/* Update title styling to match TopTracks */}
+          <div className="mb-[40px]">
+            <h2 className="text-white text-[24px] font-bold">
               Recently Played Tracks
             </h2>
           </div>
@@ -53,9 +53,7 @@ function Recent({ token }) {
               <Loading />
             </div>
           ) : (
-            <div className="relative pb-[80px] md:pb-[60px]">
-              {" "}
-              {/* Added padding for mobile nav */}
+            <div className="relative">
               {isLoading && (
                 <div className="absolute inset-0 flex items-center justify-center z-10">
                   <div className="scale-50">
@@ -64,7 +62,7 @@ function Recent({ token }) {
                 </div>
               )}
               <div
-                className={`space-y-[10px] md:space-y-[15px] mt-[20px] md:mt-[50px] ${
+                className={`space-y-[10px] md:space-y-[15px] mt-[30px] md:mt-[50px] ${
                   isLoading ? "opacity-50" : ""
                 } transition-opacity duration-[250ms] ease-in-out`}
               >
@@ -82,7 +80,7 @@ function Recent({ token }) {
                         alt={item.track.album.name}
                         className="w-full h-full object-cover"
                       />
-                      <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-[250ms] ease-in-out">
+                      <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-[250ms] ease-[cubic-bezier(0.3,0,0.4,1)]">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 45.999 45.999"
@@ -93,9 +91,7 @@ function Recent({ token }) {
                       </div>
                     </div>
                     <div className="flex-1 min-w-0">
-                      {" "}
-                      {/* Added min-w-0 to prevent text overflow */}
-                      <p className="font-light text-white text-sm md:text-base truncate">
+                      <p className="font-light text-white text-sm md:text-base truncate group-hover:text-white transition-all duration-[250ms] ease-[cubic-bezier(0.3,0,0.4,1)] border-b border-transparent hover:border-white">
                         {item.track.name}
                       </p>
                       <p className="text-[12px] md:text-[14px] text-[#9b9b9b] truncate">
