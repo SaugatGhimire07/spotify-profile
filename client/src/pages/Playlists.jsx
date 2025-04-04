@@ -42,7 +42,7 @@ function Playlists({ token }) {
       <Sidebar />
       <div className="flex-1 ml-0 lg:ml-[100px]">
         <div className="flex-1 bg-[#181818] p-[20px] md:p-[80px] max-w-[1400px] mx-auto">
-          <h2 className="text-white text-[20px] md:text-[24px] font-bold mb-[30px] md:mb-[40px]">
+          <h2 className="text-white text-[20px] md:text-[24px] font-bold mb-[30px] md:mb-[40px] text-center md:text-center lg:text-left">
             Your Playlists
           </h2>
 

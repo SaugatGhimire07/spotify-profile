@@ -43,7 +43,7 @@ function Recent({ token }) {
         <div className="flex-1 bg-[#181818] p-[20px] md:p-[80px] max-w-[1400px] mx-auto">
           {/* Update title styling to match TopTracks */}
           <div className="mb-[40px]">
-            <h2 className="text-white text-[24px] font-bold">
+            <h2 className="text-white text-[24px] font-bold text-center md:text-center lg:text-left">
               Recently Played Tracks
             </h2>
           </div>
