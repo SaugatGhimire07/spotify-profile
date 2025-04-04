@@ -8,7 +8,7 @@ function TimeRangeButtons({ timeRange, setTimeRange, isChangingTimeRange }) {
   ];
 
   return (
-    <div className="flex flex-wrap gap-[10px] w-full md:w-auto justify-start">
+    <div className="flex flex-wrap gap-[10px] w-full md:w-auto justify-center lg:justify-start">
       {timeRangeButtons.map(({ name, value }) => (
         <a
           key={value}
