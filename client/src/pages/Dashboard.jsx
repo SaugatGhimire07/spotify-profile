@@ -68,15 +68,15 @@ function Dashboard({ token }) {
 
   // This ensures the sidebar is always rendered
   return (
-    <div className="flex">
+    <div className="flex flex-col md:flex-row">
       <Sidebar />
-      <div className="flex-1 ml-[100px]">
+      <div className="w-full md:flex-1 md:ml-[100px]">
         {firstLoad ? (
-          <div className="flex items-center justify-center h-screen">
+          <div className="flex items-center justify-center min-h-screen">
             <Loading />
           </div>
         ) : (
-          <div className="flex-1 bg-[#181818] p-[80px] max-w-[1400px] mx-auto">
+          <div className="flex-1 bg-[#181818] p-[20px] md:p-[80px] max-w-[1400px] mx-auto">
             <div className="relative">
               {isLoading && (
                 <div className="absolute inset-0 flex items-center justify-center z-10">

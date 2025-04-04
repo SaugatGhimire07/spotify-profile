@@ -48,31 +48,30 @@ function UserPreview({ token }) {
 
   return (
     <div className="w-full">
-      {/* Two-column layout container */}
-      <div className="grid grid-cols-2 gap-[70px] w-full mt-[100px]">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-[30px] md:gap-[70px] w-full mt-[50px] md:mt-[100px]">
         {/* Top Artists Column */}
         <div className="flex-1">
           <div className="flex items-center justify-between mb-[20px]">
-            <h3 className="font-bold tracking-tight">
+            <h3 className="font-bold tracking-tight text-sm md:text-base">
               Top Artists of All Time
             </h3>
             <a
               href="/top-artists"
-              className="inline-block text-white text-[12px] tracking-[1px] uppercase border border-white px-[30px] py-[12px] cursor-pointer transition-[all] duration-[250ms] ease-[cubic-bezier(0.3,0,0.4,1)] text-center whitespace-nowrap hover:bg-white hover:text-black rounded-[30px]"
+              className="inline-block text-white text-[10px] md:text-[12px] tracking-[1px] uppercase border border-white px-[20px] md:px-[30px] py-[8px] md:py-[12px] cursor-pointer transition-all duration-[250ms] ease-[cubic-bezier(0.3,0,0.4,1)] text-center whitespace-nowrap hover:bg-white hover:text-black rounded-[30px]"
             >
               See More
             </a>
           </div>
-          <div className="space-y-[15px]">
+          <div className="space-y-[10px] md:space-y-[15px]">
             {topArtists.map((artist) => (
               <a
                 key={artist.id}
                 href={artist.external_urls.spotify}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center p-[10px] transition duration-[250ms] group"
+                className="flex items-center p-[8px] md:p-[10px] transition duration-[250ms] group"
               >
-                <div className="relative w-[50px] h-[50px] mr-[20px] rounded-full overflow-hidden">
+                <div className="relative w-[40px] h-[40px] md:w-[50px] md:h-[50px] mr-[15px] md:mr-[20px] rounded-full overflow-hidden">
                   <img
                     src={artist.images[0]?.url}
                     alt={artist.name}
@@ -89,10 +88,10 @@ function UserPreview({ token }) {
                   </div>
                 </div>
                 <div className="flex-1">
-                  <p className="inline-block font-light text-white group-hover:text-white transition-all duration-[250ms] ease-[cubic-bezier(0.3,0,0.4,1)] border-b border-transparent hover:border-white">
+                  <p className="inline-block font-light text-white text-sm md:text-base">
                     {artist.name}
                   </p>
-                  <p className="text-[14px] text-[#9b9b9b]">
+                  <p className="text-[12px] md:text-[14px] text-[#9b9b9b]">
                     Artist • {artist.followers.total.toLocaleString()} followers
                   </p>
                 </div>
@@ -104,24 +103,26 @@ function UserPreview({ token }) {
         {/* Top Tracks Column */}
         <div className="flex-1">
           <div className="flex items-center justify-between mb-[20px]">
-            <h3 className="font-bold tracking-tight">Top Tracks of All Time</h3>
+            <h3 className="font-bold tracking-tight text-sm md:text-base">
+              Top Tracks of All Time
+            </h3>
             <a
               href="/top-tracks"
-              className="inline-block text-white text-[12px] tracking-[1px] uppercase border border-white px-[30px] py-[12px] cursor-pointer transition-[all] duration-[250ms] ease-[cubic-bezier(0.3,0,0.4,1)] text-center whitespace-nowrap hover:bg-white hover:text-black rounded-[30px]"
+              className="inline-block text-white text-[10px] md:text-[12px] tracking-[1px] uppercase border border-white px-[20px] md:px-[30px] py-[8px] md:py-[12px] cursor-pointer transition-all duration-[250ms] ease-[cubic-bezier(0.3,0,0.4,1)] text-center whitespace-nowrap hover:bg-white hover:text-black rounded-[30px]"
             >
               See More
             </a>
           </div>
-          <div className="space-y-[15px]">
+          <div className="space-y-[10px] md:space-y-[15px]">
             {topTracks.map((track) => (
               <a
                 key={track.id}
                 href={track.external_urls.spotify}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center p-[10px] transition duration-[250ms] group"
+                className="flex items-center p-[8px] md:p-[10px] transition duration-[250ms] group"
               >
-                <div className="relative w-[50px] h-[50px] mr-[20px]">
+                <div className="relative w-[40px] h-[40px] md:w-[50px] md:h-[50px] mr-[15px] md:mr-[20px]">
                   <img
                     src={track.album.images[0]?.url}
                     alt={track.album.name}
@@ -138,10 +139,10 @@ function UserPreview({ token }) {
                   </div>
                 </div>
                 <div className="flex-1">
-                  <p className="inline-block font-light text-white group-hover:text-white transition-all duration-[250ms] ease-[cubic-bezier(0.3,0,0.4,1)] border-b border-transparent hover:border-white">
+                  <p className="inline-block font-light text-white text-sm md:text-base">
                     {track.name}
                   </p>
-                  <p className="text-[14px] text-[#9b9b9b]">
+                  <p className="text-[12px] md:text-[14px] text-[#9b9b9b]">
                     {track.artists.map((artist) => artist.name).join(", ")}
                     &nbsp;&nbsp;·&nbsp;&nbsp;{track.album.name}
                   </p>
