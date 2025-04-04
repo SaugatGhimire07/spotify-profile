@@ -24,3 +24,7 @@ body {
 .animate-dance {
   animation: dance 1.5s ease-in-out infinite;
 }
+
+.shadow-up {
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+}

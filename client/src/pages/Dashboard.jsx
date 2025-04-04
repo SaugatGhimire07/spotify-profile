@@ -68,9 +68,11 @@ function Dashboard({ token }) {
 
   // This ensures the sidebar is always rendered
   return (
-    <div className="flex flex-col md:flex-row">
+    <div className="flex flex-col md:flex-row min-h-screen">
       <Sidebar />
-      <div className="w-full md:flex-1 md:ml-[100px]">
+      <div className="w-full md:ml-[100px] pb-[60px] md:pb-0">
+        {" "}
+        {/* Add bottom padding for mobile */}
         {firstLoad ? (
           <div className="flex items-center justify-center min-h-screen">
             <Loading />
