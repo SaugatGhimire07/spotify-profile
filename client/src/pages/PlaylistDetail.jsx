@@ -46,7 +46,7 @@ function PlaylistDetail({ token }) {
   return (
     <div className="flex">
       <Sidebar />
-      <div className="flex-1 ml-0 md:ml-[100px]">
+      <div className="flex-1 ml-0 lg:ml-[100px]">
         <div className="flex-1 bg-[#181818] p-[20px] md:p-[80px] max-w-[1400px] mx-auto">
           {firstLoad ? (
             <div className="flex items-center justify-center min-h-[400px]">

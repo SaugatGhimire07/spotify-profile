@@ -41,7 +41,7 @@ function TopTracks({ token }) {
   return (
     <div className="flex">
       <Sidebar />
-      <div className="flex-1 ml-0 md:ml-[100px]">
+      <div className="flex-1 ml-0 lg:ml-[100px]">
         <div className="flex-1 bg-[#181818] p-[20px] md:p-[80px] max-w-[1400px] mx-auto">
           {/* Stack title and buttons vertically on mobile */}
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-0 mb-[40px]">
