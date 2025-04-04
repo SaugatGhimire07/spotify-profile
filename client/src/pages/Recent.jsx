@@ -91,10 +91,10 @@ function Recent({ token }) {
                       </div>
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="font-light text-white text-sm md:text-base truncate group-hover:text-white transition-all duration-[250ms] ease-[cubic-bezier(0.3,0,0.4,1)] border-b border-transparent hover:border-white">
+                      <p className="inline-block font-light text-white group-hover:text-white transition-all duration-[250ms] ease-[cubic-bezier(0.3,0,0.4,1)] border-b border-transparent hover:border-white">
                         {item.track.name}
                       </p>
-                      <p className="text-[12px] md:text-[14px] text-[#9b9b9b] truncate">
+                      <p className="text-[14px] text-[#9b9b9b]">
                         {item.track.artists
                           .map((artist) => artist.name)
                           .join(", ")}
