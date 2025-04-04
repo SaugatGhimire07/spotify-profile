@@ -41,9 +41,10 @@ function TopTracks({ token }) {
   return (
     <div className="flex">
       <Sidebar />
-      <div className="flex-1 ml-[100px]">
-        <div className="flex-1 bg-[#181818] p-[80px] max-w-[1400px] mx-auto">
-          <div className="flex items-center justify-between mb-[40px]">
+      <div className="flex-1 ml-0 md:ml-[100px]">
+        <div className="flex-1 bg-[#181818] p-[20px] md:p-[80px] max-w-[1400px] mx-auto">
+          {/* Stack title and buttons vertically on mobile */}
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-0 mb-[40px]">
             <h2 className="text-white text-[24px] font-bold">Top Tracks</h2>
             <TimeRangeButtons
               timeRange={timeRange}
@@ -66,7 +67,7 @@ function TopTracks({ token }) {
                 </div>
               )}
               <div
-                className={`space-y-[15px] mt-[50px] ${
+                className={`space-y-[10px] md:space-y-[15px] mt-[30px] md:mt-[50px] ${
                   isLoading ? "opacity-50" : ""
                 } transition-opacity duration-[250ms] ease-in-out`}
               >
@@ -76,9 +77,9 @@ function TopTracks({ token }) {
                     href={track.external_urls.spotify}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center mb-[30px] transition duration-[250ms] ease-in-out group"
+                    className="flex items-center p-[8px] md:p-[10px] transition duration-[250ms] ease-in-out group hover:bg-[#282828] rounded"
                   >
-                    <div className="relative w-[50px] h-[50px] mr-[20px]">
+                    <div className="relative w-[40px] h-[40px] md:w-[50px] md:h-[50px] mr-[15px] md:mr-[20px]">
                       <img
                         src={track.album.images[0]?.url}
                         alt={track.album.name}
@@ -88,7 +89,7 @@ function TopTracks({ token }) {
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 45.999 45.999"
-                          className="w-[25px] h-[25px] fill-white"
+                          className="w-[20px] h-[20px] md:w-[25px] md:h-[25px] fill-white"
                         >
                           <path d="M39.264,6.736c-8.982-8.981-23.545-8.982-32.528,0c-8.982,8.982-8.981,23.545,0,32.528c8.982,8.98,23.545,8.981,32.528,0 C48.245,30.281,48.244,15.719,39.264,6.736z M25.999,33c0,1.657-1.343,3-3,3s-3-1.343-3-3V21c0-1.657,1.343-3,3-3s3,1.343,3,3V33z M22.946,15.872c-1.728,0-2.88-1.224-2.844-2.735c-0.036-1.584,1.116-2.771,2.879-2.771c1.764,0,2.88,1.188,2.917,2.771 C25.897,14.648,24.746,15.872,22.946,15.872z" />
                         </svg>
