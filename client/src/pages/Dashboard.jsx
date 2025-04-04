@@ -78,7 +78,7 @@ function Dashboard({ token }) {
             <Loading />
           </div>
         ) : (
-          <div className="flex-1 bg-[#181818] p-[20px] md:p-[80px] max-w-[1400px] mx-auto">
+          <div className="flex-1 bg-[#181818] p-[20px] md:py-[50px] md:px-[40px] lg:p-[80px] max-w-[1400px] mx-auto">
             <div className="relative">
               {isLoading && (
                 <div className="absolute inset-0 flex items-center justify-center z-10">

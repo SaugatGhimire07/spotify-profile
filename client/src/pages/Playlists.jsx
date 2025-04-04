@@ -41,7 +41,7 @@ function Playlists({ token }) {
     <div className="flex">
       <Sidebar />
       <div className="flex-1 ml-0 lg:ml-[100px]">
-        <div className="flex-1 bg-[#181818] p-[20px] md:p-[80px] max-w-[1400px] mx-auto">
+        <div className="flex-1 bg-[#181818] p-[20px] md:py-[50px] md:px-[40px] lg:p-[80px] max-w-[1400px] mx-auto">
           <h2 className="text-white text-[20px] md:text-[24px] font-bold mb-[30px] md:mb-[40px] text-center md:text-center lg:text-left">
             Your Playlists
           </h2>
@@ -60,7 +60,7 @@ function Playlists({ token }) {
                 </div>
               )}
               <div
-                className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-[15px] md:gap-[30px] mt-[30px] md:mt-[50px] ${
+                className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-[15px] md:gap-[30px] mt-[30px] md:mt-[50px] ${
                   isLoading ? "opacity-50" : ""
                 } transition-opacity duration-[250ms] ease-in-out`}
               >

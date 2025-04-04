@@ -47,7 +47,7 @@ function TopArtists({ token }) {
       <div className="flex-1 ml-0 lg:ml-[100px]">
         {" "}
         {/* Changed this line */}
-        <div className="flex-1 bg-[#181818] p-[20px] md:p-[80px] max-w-[1400px] mx-auto">
+        <div className="flex-1 bg-[#181818] p-[20px] md:py-[50px] md:px-[40px] lg:p-[80px] max-w-[1400px] mx-auto">
           {/* Change to flex-col for mobile */}
           <div className="flex flex-col md:flex-col lg:flex-row lg:items-center lg:justify-between gap-4 lg:gap-0 mb-[40px]">
             <h2 className="text-white text-[24px] font-bold text-center md:text-center lg:text-left">

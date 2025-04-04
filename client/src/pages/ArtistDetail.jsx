@@ -36,7 +36,7 @@ function ArtistDetail({ token }) {
     <div className="flex">
       <Sidebar />
       <div className="flex-1 ml-[100px]">
-        <div className="flex-1 bg-[#181818] p-[80px] max-w-[1400px] mx-auto">
+        <div className="flex-1 bg-[#181818] p-[20px] md:py-[50px] md:px-[40px] lg:p-[80px] max-w-[1400px] mx-auto">
           {firstLoad ? (
             <div className="flex items-center justify-center min-h-[400px]">
               <Loading />
