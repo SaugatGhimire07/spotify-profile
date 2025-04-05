@@ -35,8 +35,8 @@ function ArtistDetail({ token }) {
   return (
     <div className="flex flex-col md:flex-row min-h-screen">
       <Sidebar />
-      <div className="w-full md:flex-1 lg:ml-[100px] flex items-center justify-center">
-        <div className="bg-[#181818] p-[20px] md:py-[40px] md:px-[30px] lg:p-[80px] max-w-[1400px] w-full mx-auto">
+      <div className="w-full md:flex-1 lg:ml-[100px] flex items-center justify-center min-h-screen">
+        <div className="bg-[#181818] p-[20px] md:py-[40px] md:px-[30px] lg:p-[80px] max-w-[1400px] w-full">
           {firstLoad ? (
             <div className="flex items-center justify-center min-h-[400px]">
               <Loading />
