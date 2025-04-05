@@ -56,7 +56,7 @@ function ArtistDetail({ token }) {
                 } transition-opacity duration-300`}
               >
                 {/* Artist Artwork */}
-                <div className="w-[200px] h-[200px] md:w-[300px] md:h-[300px] rounded-full overflow-hidden mb-[20px] md:mb-[30px]">
+                <div className="w-[200px] h-[200px] lg:w-[300px] lg:h-[300px] rounded-full overflow-hidden mb-[20px] md:mb-[30px]">
                   <img
                     src={artist?.images[0]?.url}
                     alt={artist?.name}
